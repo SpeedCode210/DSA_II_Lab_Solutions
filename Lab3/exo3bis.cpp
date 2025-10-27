@@ -64,8 +64,22 @@ void del(Node *head)
     }
 }
 
-Node *swap_from(Node *node, Node *head)
+Node *swap_from(Node *node1, Node *node2, Node *head)
 {
+    Node *node;
+    if (node1->next == node2)
+    {
+        node = node1;
+    }
+    else if (node2->next == node1)
+    {
+        node = node2;
+    }
+    else
+    {
+        throw exception();
+    }
+    
     if (node == head)
     {
         if (head->next == nullptr)
@@ -115,8 +129,8 @@ int main()
     b = push_front(b, 2);
     b = push_front(b, 0);
 
-    b = swap_from(to_swap, b);
-    b = swap_from(b, b);
+    b = swap_from(to_swap, to_swap->next, b);
+    b = swap_from(b, b->next, b);
     print(b);
     print_rev(tail);
 
