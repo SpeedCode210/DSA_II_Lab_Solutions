@@ -17,7 +17,7 @@ struct Node
 };
 Node *stack = nullptr;
 
-int front()
+int top()
 {
     if (sz == 0)
         throw new exception();
@@ -46,11 +46,11 @@ signed main()
     push(1);
     push(3);
     push(2);
-    cout << front() << '\n';
+    cout << top() << '\n';
     pop();
-    cout << front() << '\n';
+    cout << top() << '\n';
     pop();
-    cout << front() << '\n';
+    cout << top() << '\n';
     pop();
 
     while (sz)
