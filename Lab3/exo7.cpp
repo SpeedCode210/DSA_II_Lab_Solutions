@@ -15,28 +15,28 @@ struct Node
         next = n;
     }
 };
-Node *queue = nullptr;
+Node *stack = nullptr;
 
 int front()
 {
     if (sz == 0)
         throw new exception();
-    return queue->val;
+    return stack->val;
 }
 
 void pop()
 {
     if (sz == 0)
         throw new exception();
-    Node *s = queue;
-    queue = queue->next;
+    Node *s = stack;
+    stack = stack->next;
     delete s;
     sz--;
 }
 
 void push(int n)
 {
-    queue = new Node(n, queue);
+    stack = new Node(n, stack);
     sz++;
 }
 
@@ -55,8 +55,8 @@ signed main()
 
     while (sz)
     {
-        Node *n = queue;
-        queue = queue->next;
+        Node *n = stack;
+        stack = stack->next;
         delete n;
         sz--;
     }
